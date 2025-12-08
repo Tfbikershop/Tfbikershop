@@ -2401,6 +2401,51 @@ textarea.input {
   position: static;
   margin: 15px 0px;
 }
+/* Success message */
+.success-message {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: none;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Progress bar */
+.success-message .progress-bar {
+  height: 4px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.success-message .progress-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: white;
+  animation: fillBar 5s linear forwards;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
 
 /*=========================================================
 	13 -> RESPONSIVE
