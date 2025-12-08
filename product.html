@@ -970,7 +970,7 @@
     name: form.name.value,
     phone: form.phone.value,
     email: form.email.value,
-    product: "First Purchase Discount",
+    product: product ? product.name : "Unknown Product",
   };
 
   fetch(
