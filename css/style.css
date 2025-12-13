@@ -1681,8 +1681,8 @@ textarea.input {
 
 /* Simple example Add to cart button style (not necessary if you already have one) */
 .add-to-cart-btn {
-  margin: 20px;
-  padding: 10px 18px;
+  margin: 10px;
+  padding: 15px 70px;
   background: #e33b3b;
   color: white;
   border: none;
