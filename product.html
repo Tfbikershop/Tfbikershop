@@ -701,21 +701,34 @@
 
         <!-- RIGHT dark side -->
         <div class="right-side">
-          <form
-            class="offer-form"
-            onsubmit="event.preventDefault(); applyCode();"
-          >
-            <input type="text" name="name" placeholder="Full Name" required />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              required
-            />
-            <input type="text" name="email" placeholder="Adresse" required />
-            <button type="submit" class="apply-btn">Enter</button>
-          </form>
-        </div>
+  <form
+    class="offer-form"
+    onsubmit="event.preventDefault(); applyCode();"
+  >
+    <input type="text" name="name" placeholder="Full Name" required />
+
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+      required
+    />
+
+    <select name="size" required>
+      <option value="" disabled selected>Choose Size</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="XXL">XXL</option>
+    </select>
+
+    <input type="text" name="email" placeholder="Adresse" required />
+
+    <button type="submit" class="apply-btn">Enter</button>
+  </form>
+</div>
+
       </div>
     </div>
 
@@ -890,11 +903,12 @@
     name: form.name.value,
     phone: form.phone.value,
     email: form.email.value,
+    size: form.size.value,
     product: product ? product.name : "Unknown Product",
   };
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbyyQWbXM0fqOk5RyGikmiLR99A1I7TryJiJHl19D3pgBWkQCqbO21dhoHGdCnN85NRC/exec",
+    "https://script.google.com/macros/s/AKfycbzfigM8Tr5MBRUF_CW45WfA8lltKhyXs7u7si9-2gk_nrPdoqCLtvDcmXSvFTAr_t59/exec",
     {
       method: "POST",
       mode: "no-cors",
