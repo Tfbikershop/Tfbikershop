@@ -71,7 +71,7 @@
             <!-- LOGO -->
             <div class="col-md-3">
               <div class="header-logo">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                   <img src="./img/tflogo.png" alt="BikeGear Pro" />
                 </a>
               </div>
@@ -164,7 +164,7 @@
                         <h3 class="product-name">
                           <a href="#">SUPPORT BOTTLE - BLUE</a>
                         </h3>
-                        <h4 class="product-price">179DH</h4>
+                        <h4 class="product-price">189DH</h4>
                       </div>
                       <div class="add-to-cart">
                         <button class="add-to-cart-btn">
@@ -233,7 +233,7 @@
                         <h3 class="product-name">
                           <a href="#">Phare secoure B6</a>
                         </h3>
-                        <h4 class="product-price">0,00DH</h4>
+                        <h4 class="product-price">600 DH</h4>
                       </div>
                       <div class="add-to-cart">
                         <button class="add-to-cart-btn">
@@ -324,9 +324,9 @@
                       <div class="product-body">
                         <p class="product-category">Helmets</p>
                         <h3 class="product-name">
-                          <a href="#">Tank Protection Pad</a>
+                          <a href="#">SUPPORT PHONE</a>
                         </h3>
-                        <h4 class="product-price">0,00DH</h4>
+                        <h4 class="product-price">450 DH</h4>
                       </div>
                       <div class="add-to-cart">
                         <button class="add-to-cart-btn">
@@ -345,9 +345,9 @@
                       <div class="product-body">
                         <p class="product-category">Helmets</p>
                         <h3 class="product-name">
-                          <a href="#">SUPPORT PHONE</a>
+                          <a href="#">SUPPORT PHONE ( red )</a>
                         </h3>
-                        <h4 class="product-price">0,00DH</h4>
+                        <h4 class="product-price">450 DH</h4>
                       </div>
                       <div class="add-to-cart">
                         <button class="add-to-cart-btn">
@@ -888,5 +888,57 @@
     <script src="js/nouislider.min.js"></script>
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- SCRIPT FOR STAGGERED ANIMATION DELAY ---
+        // This script finds all cards and adds a delay to each one.
+        // The first card has 0ms delay, the second 30ms, the third 60ms, etc.
+
+        // Target the main shop category cards
+        const shopCards = document.querySelectorAll(".section .shop");
+        shopCards.forEach((card, index) => {
+          card.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // Target all product cards within slick sliders
+        const productCards = document.querySelectorAll(
+          ".products-slick .product"
+        );
+        productCards.forEach((card, index) => {
+          card.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // Target all product widgets
+        const productWidgets = document.querySelectorAll(".product-widget");
+        productWidgets.forEach((widget, index) => {
+          widget.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // --- INITIALIZE AOS ---
+        AOS.init({
+          duration: 1500, // Animation duration set to 1500ms
+          once: true, // Animation happens only once
+        });
+      });
+
+      // --- YOUR ORIGINAL SCRIPT FOR PRODUCT CLICK ---
+      document.querySelectorAll(".product").forEach((productCard) => {
+        productCard.addEventListener("click", () => {
+          const name = productCard
+            .querySelector(".product-name a")
+            .textContent.trim();
+          const price = productCard
+            .querySelector(".product-price")
+            .childNodes[0].textContent.trim();
+          const image = productCard.querySelector("img").src;
+
+          const product = { name, price, image };
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+          window.location.href = "product.html";
+        });
+      });
+    </script>
   </body>
 </html>

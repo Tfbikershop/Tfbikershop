@@ -494,18 +494,18 @@
           <div class="col-md-3 col-xs-6">
             <div class="product">
               <div class="product-img">
-                <img src="./img/product01.png" alt="" />
+                <img src="./img/gloves04.png" alt="" />
                 <div class="product-label">
                   <span class="sale">-30%</span>
                 </div>
               </div>
               <div class="product-body">
-                <p class="product-category">Category</p>
+                <p class="product-category">Gloves</p>
                 <h3 class="product-name">
-                  <a href="#">product name goes here</a>
+                  <a href="#">Fox Gloves red</a>
                 </h3>
                 <h4 class="product-price">
-                  $980.00 <del class="product-old-price">$990.00</del>
+                  179 Dh <del class="product-old-price">250 DH</del>
                 </h4>
                 <div class="product-rating"></div>
                 
@@ -523,18 +523,18 @@
           <div class="col-md-3 col-xs-6">
             <div class="product">
               <div class="product-img">
-                <img src="./img/product02.png" alt="" />
+                <img src="./img/helmet018.png" alt="" />
                 <div class="product-label">
                   <span class="new">NEW</span>
                 </div>
               </div>
               <div class="product-body">
-                <p class="product-category">Category</p>
+                <p class="product-category">HELMETS</p>
                 <h3 class="product-name">
-                  <a href="#">product name goes here</a>
+                  <a href="#">Casque cms traile</a>
                 </h3>
                 <h4 class="product-price">
-                  $980.00 <del class="product-old-price">$990.00</del>
+                  1399 DH <del class="product-old-price">1799 DH</del>
                 </h4>
                 <div class="product-rating">
                   <i class="fa fa-star"></i>
@@ -560,15 +560,15 @@
           <div class="col-md-3 col-xs-6">
             <div class="product">
               <div class="product-img">
-                <img src="./img/product03.png" alt="" />
+                <img src="./img/helmet027.png" alt="" />
               </div>
               <div class="product-body">
-                <p class="product-category">Category</p>
+                <p class="product-category">Helmet</p>
                 <h3 class="product-name">
-                  <a href="#">product name goes here</a>
+                  <a href="#">Casque scorpion Black</a>
                 </h3>
                 <h4 class="product-price">
-                  $980.00 <del class="product-old-price">$990.00</del>
+                  3999 DH <del class="product-old-price">4499 DH</del>
                 </h4>
                 <div class="product-rating">
                   <i class="fa fa-star"></i>
@@ -592,15 +592,15 @@
           <div class="col-md-3 col-xs-6">
             <div class="product">
               <div class="product-img">
-                <img src="./img/product04.png" alt="" />
+                <img src="./img/gloves08.png" alt="" />
               </div>
               <div class="product-body">
-                <p class="product-category">Category</p>
+                <p class="product-category">Gloves</p>
                 <h3 class="product-name">
-                  <a href="#">product name goes here</a>
+                  <a href="#">Fox Gloves red</a>
                 </h3>
                 <h4 class="product-price">
-                  $980.00 <del class="product-old-price">$990.00</del>
+                  179 DH <del class="product-old-price">249 DH</del>
                 </h4>
                 <div class="product-rating"></div>
                 
@@ -916,6 +916,58 @@
 
 </script>
 
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- SCRIPT FOR STAGGERED ANIMATION DELAY ---
+        // This script finds all cards and adds a delay to each one.
+        // The first card has 0ms delay, the second 30ms, the third 60ms, etc.
+
+        // Target the main shop category cards
+        const shopCards = document.querySelectorAll(".section .shop");
+        shopCards.forEach((card, index) => {
+          card.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // Target all product cards within slick sliders
+        const productCards = document.querySelectorAll(
+          ".products-slick .product"
+        );
+        productCards.forEach((card, index) => {
+          card.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // Target all product widgets
+        const productWidgets = document.querySelectorAll(".product-widget");
+        productWidgets.forEach((widget, index) => {
+          widget.setAttribute("data-aos-delay", index * 30);
+        });
+
+        // --- INITIALIZE AOS ---
+        AOS.init({
+          duration: 1500, // Animation duration set to 1500ms
+          once: true, // Animation happens only once
+        });
+      });
+
+      // --- YOUR ORIGINAL SCRIPT FOR PRODUCT CLICK ---
+      document.querySelectorAll(".product").forEach((productCard) => {
+        productCard.addEventListener("click", () => {
+          const name = productCard
+            .querySelector(".product-name a")
+            .textContent.trim();
+          const price = productCard
+            .querySelector(".product-price")
+            .childNodes[0].textContent.trim();
+          const image = productCard.querySelector("img").src;
+
+          const product = { name, price, image };
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+          window.location.href = "product.html";
+        });
+      });
     </script>
   </body>
 </html>
